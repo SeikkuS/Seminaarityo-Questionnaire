@@ -9,7 +9,7 @@ function HomePage() {
   return (
 
     <Container fluid className="bg-primary text-white text-center">
-      <Title className="mb-4">Quiz App</Title>
+      <Title variant="light" className="py-3 px-5">Questionnaire App</Title>
       <Link to="/quiz">
         <Button variant="light" className="py-3 px-5">
           Start Quiz
