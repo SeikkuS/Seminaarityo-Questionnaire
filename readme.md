@@ -143,12 +143,12 @@ I then added a Navbar to my return statement to make the site look nicer. The na
 The return statement in two parts:
 
 ![kuva](https://user-images.githubusercontent.com/105205141/235870080-70321e16-46e9-42ce-91aa-aa4df6ebcfd6.png)
+![kuva](https://user-images.githubusercontent.com/105205141/235870187-b7ac4656-35ef-4289-94fd-6fa021a07786.png)
 
 
 This is the finished Quiz page:
 
 ![kuva](https://user-images.githubusercontent.com/105205141/235868595-b5e2b1a7-6a66-432d-a5b5-c213b6d237d3.png)
-![kuva](https://user-images.githubusercontent.com/105205141/235870187-b7ac4656-35ef-4289-94fd-6fa021a07786.png)
 
 
 ### *BONUS* I decided to add a bit of visual assistance to the question answering, to make it less grey and white and boring looking (the visuals were secondary in this project). This visual assistance consisted of icons. When the answer was correct, the popup would have a green success icon, when incorrect it would be a red "X". In addition, after every question the Result component printing the correct answer would also print a larger red X UNLESS the score of the player reaches 5. at which point the game is essentially won.
