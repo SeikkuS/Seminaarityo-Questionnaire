@@ -78,4 +78,24 @@ This is what the Home page looks like once there is a QuizPage that the link can
 
 ![kuva](https://user-images.githubusercontent.com/105205141/235860613-492d7873-6886-43de-b0fe-81a5623e5ffd.png)
 
+## Part 5 - QuizPage.js
 
+This is where almost all of the work hours went in.
+
+at first i decided to create the const-variables that I'm going to need:
+        
+     const QuizPage = () => {
+        const [questions, setQuestions] = useState([]);
+        const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+        const [score, setScore] = useState(0);
+        const [showAnswer, setShowAnswer] = useState(false);
+        
+ Now to acquiring the questions and answers themselves. I created a fetchQuestions function that tries to acquire a batch of 10 questions from the API (the link limit is 20 but I figured out that when you're using a free version of the API, the limit of the questions in one fetch is 10.
+
+![kuva](https://user-images.githubusercontent.com/105205141/235861721-e5c90a24-af12-4277-baa1-2f156badb171.png)
+
+The biggest issue with this API that I decided to use was that it wasnt using the same structural format as most APIs I've encountered. Instead of data.results being the parent for all the JSON data provided, it was simply directly under Data. This baffled me for a long while and while I somehow accidentally managed to acquire the answers to the questions from the API, it took me several hours to figure out how to get the questions successfully. My questions ended up being undefined because I wasn't looking for them in the right place. 
+
+!NOTE: I kept updating the return statement during every alteration I made in order to make sure that things were working correctly (or in any way at all).
+
+Now that I had the data successfully being fetched, I could move on to printing the question on the return statement. I also printed the answers as buttons. There would be 3 incorrect answers as buttons and one correct one. At the start I decided to keep it simple and made t so the fourth one was always the correct one, in order to check the functionality of answering right or wrong and seeing if the code had any issues with the button pressing. I came to realize that when the game ran out of questions (10 acquired from the fetch) It would always crash. This was later fixed by making it so that when the questions end, the game officially ends, stating "You've answered all questions!" and printing the score of this game.
