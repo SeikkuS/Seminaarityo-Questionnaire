@@ -145,7 +145,7 @@ This is the finished Quiz page:
 ![kuva](https://user-images.githubusercontent.com/105205141/235868595-b5e2b1a7-6a66-432d-a5b5-c213b6d237d3.png)
 
 
-* BONUS * I decided to add a bit of visual assistance to the question answering, to make it less grey and white and boring looking (the visuals were secondary in this project). This visual assistance consisted of icons. When the answer was correct, the popup would have a green success icon, when incorrect it would be a red "X". In addition, after every question the Result component printing the correct answer would also print a larger red X UNLESS the score of the player reaches 5. at which point the game is essentially won.
+### *BONUS* I decided to add a bit of visual assistance to the question answering, to make it less grey and white and boring looking (the visuals were secondary in this project). This visual assistance consisted of icons. When the answer was correct, the popup would have a green success icon, when incorrect it would be a red "X". In addition, after every question the Result component printing the correct answer would also print a larger red X UNLESS the score of the player reaches 5. at which point the game is essentially won.
 
 Looking back at this afterwards, perhaps the big Red X when answering correctly but the score being under 5 was not the most ideal option. Also if you answer the last question (10th) as the 5th point correctly, you would recieve 2 green success notifications:
 
