@@ -82,6 +82,9 @@ This is what the Home page looks like once there is a QuizPage that the link can
 
 This is where almost all of the work hours went in.
 
+!NOTE: I kept updating the return statement during every alteration I made in order to make sure that things were working correctly (or in any way at all).
+You can read the finished return statement at the bottom of this section.
+
 at first i decided to create the const-variables that I'm going to need:
         
      const QuizPage = () => {
@@ -96,6 +99,58 @@ at first i decided to create the const-variables that I'm going to need:
 
 The biggest issue with this API that I decided to use was that it wasnt using the same structural format as most APIs I've encountered. Instead of data.results being the parent for all the JSON data provided, it was simply directly under Data. This baffled me for a long while and while I somehow accidentally managed to acquire the answers to the questions from the API, it took me several hours to figure out how to get the questions successfully. My questions ended up being undefined because I wasn't looking for them in the right place. 
 
-!NOTE: I kept updating the return statement during every alteration I made in order to make sure that things were working correctly (or in any way at all).
+Now that I had the data successfully being fetched, I could move on to printing the question on the return statement. I also printed the answers as buttons. There would be 3 incorrect answers as buttons and one correct one. At the start I decided to keep it simple and made it so the fourth one was always the correct one, in order to check the functionality of answering right or wrong and seeing if the code had any issues with the button pressing. This was my Answer handling funtion:
 
-Now that I had the data successfully being fetched, I could move on to printing the question on the return statement. I also printed the answers as buttons. There would be 3 incorrect answers as buttons and one correct one. At the start I decided to keep it simple and made t so the fourth one was always the correct one, in order to check the functionality of answering right or wrong and seeing if the code had any issues with the button pressing. I came to realize that when the game ran out of questions (10 acquired from the fetch) It would always crash. This was later fixed by making it so that when the questions end, the game officially ends, stating "You've answered all questions!" and printing the score of this game.
+![kuva](https://user-images.githubusercontent.com/105205141/235864533-1fb2c37a-010d-4251-b583-178e5beeb0bd.png)
+
+So it would return a simple message regarding whether or not you were right, and also increase the player's score based on that.
+
+I also made a button for switching from one question to the next. This was the handler function for that button:
+
+![kuva](https://user-images.githubusercontent.com/105205141/235865061-370c8978-b09c-468d-879f-c8e311040f93.png)
+
+
+I came to realize that when the game ran out of questions (10 acquired from the fetch) It would always crash. This was later fixed by making it so that when the questions end, the game officially ends, stating "You've answered all questions!" and printing the score of this game. To do this I used Ant Design's clever Result component, which prints out a smart little pop-up notification.
+
+Once the questions and answers were successfully printing and pressing the answers didn't break anything in the program, I decided it was time to shuffle the answer options so the location of the correct answer was random:
+
+![kuva](https://user-images.githubusercontent.com/105205141/235863790-98f3af0e-d3d9-462c-852c-02c2f083e608.png)
+
+I created these shuffleArray and shuffleArray functions to do just that. They would later be called in the return statement to successfully shuffle the answers.
+
+![kuva](https://user-images.githubusercontent.com/105205141/235864183-e1762694-796e-47a3-96c8-fa464519b7b5.png)
+
+![kuva](https://user-images.githubusercontent.com/105205141/235864262-913c5724-e122-4ac2-9cd2-ca3b69429f90.png)
+
+Right before the return statement begins, I created this useEffect hook:
+
+![kuva](https://user-images.githubusercontent.com/105205141/235865641-d4d8594c-729b-4d26-acbe-1c125c301fa5.png)
+
+The code then checks if the questions array is empty or not. If it is, it displays a "Loading..." message. This is a common pattern for handling asynchronous data loading in React components.
+
+After the questions have been fetched, the code sets the currentQuestion constant to the current question object, which is located at the currentQuestionIndex position in the questions array.
+
+The code then shuffles the answer options for the current question using the shuffleAnswers function.
+
+I then added a Navbar to my return statement to make the site look nicer. The navbar became the place that stores the current score of the game. I then started by making a Container inside which I added the whole structure of the game:
+
+1. An Ant Design Typography would print the question
+2. A div would contain the buttons for the answers which would be shuffled using the shuffleArray() function
+3. After that div a new would be used to show the Answer as an Ant Design Result component
+4. Then there would be a Button for the Next Question which will only be shown if the current index of the question is smaller than 9 (starting from 0 so 10th question)
+5. When the final question is answered, it will print another Ant Design Result component with the Score and the message saying "You've answered all questions!"
+
+This is the finished Quiz page:
+
+![kuva](https://user-images.githubusercontent.com/105205141/235868595-b5e2b1a7-6a66-432d-a5b5-c213b6d237d3.png)
+
+
+* BONUS * I decided to add a bit of visual assistance to the question answering, to make it less grey and white and boring looking (the visuals were secondary in this project). This visual assistance consisted of icons. When the answer was correct, the popup would have a green success icon, when incorrect it would be a red "X". In addition, after every question the Result component printing the correct answer would also print a larger red X UNLESS the score of the player reaches 5. at which point the game is essentially won.
+
+Looking back at this afterwards, perhaps the big Red X when answering correctly but the score being under 5 was not the most ideal option. Also if you answer the last question (10th) as the 5th point correctly, you would recieve 2 green success notifications:
+
+![kuva](https://user-images.githubusercontent.com/105205141/235868289-05ec8e95-008d-410b-9d06-a962e9b2518b.png)
+
+I ended up not having time to make a simple restart game button, but essentially creating it would be simple and easy, since there is no data to be saved in the site you could just make a button that refreshes the site.
+
+
