@@ -143,7 +143,7 @@ I then added a Navbar to my return statement to make the site look nicer. The na
 The return statement in two parts:
 
 ![kuva](https://user-images.githubusercontent.com/105205141/235870080-70321e16-46e9-42ce-91aa-aa4df6ebcfd6.png)
-![kuva](https://user-images.githubusercontent.com/105205141/235870187-b7ac4656-35ef-4289-94fd-6fa021a07786.png)
+![kuva](https://user-images.githubusercontent.com/105205141/235870457-ea016227-c001-4a64-a98d-f4427b76f54f.png)
 
 
 This is the finished Quiz page:
