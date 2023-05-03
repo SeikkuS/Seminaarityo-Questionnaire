@@ -154,3 +154,14 @@ Looking back at this afterwards, perhaps the big Red X when answering correctly 
 I ended up not having time to make a simple restart game button, but essentially creating it would be simple and easy, since there is no data to be saved in the site you could just make a button that refreshes the site.
 
 
+### Sources used during this project:
+
+The Trivia API Documentation: https://the-trivia-api.com/docs/v2/
+
+Ant Design Documentation: https://ant.design/docs/react/introduce
+
+Simple Getting Started Guide on React Bootstrap: https://react-bootstrap.github.io/getting-started/introduction
+
+Tutorial for React Router Dom: https://reactrouter.com/en/main/start/tutorial
+
+(During the struggle with the FetchQuestions functions data, I also used the help of OpenAI ChatGPT: https://chat.openai.com/ (PS: DIDN'T HELP))
